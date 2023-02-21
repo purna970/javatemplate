@@ -20,5 +20,4 @@ steps:
       testResultsFiles: '**/surefire-reports/TEST-*.xml'
       javaHomeOption: 'path'
       jdkVersionOption: "${{ parameters.javaversionoption }}"
-      jdkDirectory: "/usr/lib/jvm/${{ parameters.java }}" 
-	  
+      jdkDirectory: "/usr/lib/jvm/${{ parameters.java }}"
