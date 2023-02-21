@@ -1,0 +1,24 @@
+parameters: 
+  - name: javaversionoption
+    type: string
+    default: '1.17'
+  - name: java 
+    type: string        
+    default: "java-1.17.0-openjdk-amd64"
+  - name: maven
+    type: string 
+    default: "Maven@3"
+  - name: goals
+    type: string 
+    default: "package" 
+steps: 
+  - task: "${{ parameters.maven }}"
+    inputs:
+      mavenPOMFile: 'pom.xml'
+      goals: "${{ parameters.goals }}"
+      publishJUnitResults: true
+      testResultsFiles: '**/surefire-reports/TEST-*.xml'
+      javaHomeOption: 'path'
+      jdkVersionOption: "${{ parameters.javaversionoption }}"
+      jdkDirectory: "/usr/lib/jvm/${{ parameters.java }}" 
+	  
