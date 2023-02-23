@@ -13,7 +13,7 @@ parameters:
     default: "package" 
   - name: pathtopublish
     type: string
-    default: '$(Build.ArtifactStagingDirectory)' 
+    default: '$(Build.ArtifactStagingDirectory)/target/spring-petclinic-2.7.3.jar' 
   - name: artifactname
     type: string
     default: "mavenartifact"
