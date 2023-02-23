@@ -26,7 +26,7 @@ parameters:
   - name: branch
     type: string
     default: "refs/heads/main"  
-  - name: artifact
+  - name: myartifact
     type: string
     default: "artifact" 
   - name: targetpath
