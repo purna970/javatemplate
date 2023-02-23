@@ -35,4 +35,4 @@ steps:
     inputs:
       PathtoPublish: "${{ parameters.pathtopublish }}"
       ArtifactName: "${{ parameters.artifactname }}"
-      publishLocation: "${{ parameters.publishlocation }}" 
+      publishLocation: "${{ parameters.publishlocation }}"
