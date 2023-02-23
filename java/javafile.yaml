@@ -28,7 +28,7 @@ parameters:
     default: "refs/heads/main"  
   - name: artifact
     type: string
-    default: "mavenartifact" 
+    default: "artifact" 
   - name: targetpath
     type: string
     default: "$(System.ArtifactsDirectory)"     
