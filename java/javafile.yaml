@@ -23,15 +23,12 @@ parameters:
   - name: buildtype
     type: string
     default: "current"  
-  - name: branch
+  - name: downloadtype
     type: string
-    default: "refs/heads/main"  
-  - name: artifact
+    default: "single"
+  - name: downloadpath
     type: string
-    default: "Artifact name" 
-  - name: targetpath
-    type: string
-    default: "$(System.ArtifactsDirectory)"     
+    default: '$(System.ArtifactsDirectory)'    
 
 steps: 
   - task: "${{ parameters.maven }}"
@@ -48,9 +45,9 @@ steps:
       PathtoPublish: "${{ parameters.pathtopublish }}"
       ArtifactName: "${{ parameters.artifactname }}"
       publishLocation: "${{ parameters.publishlocation }}" 
-  - task: DownloadPipelineArtifact@1
+  - task: DownloadBuildArtifact@1
     inputs:
       buildType: "${{ parameters.buildtype }}"
-      branchName: "${{ parameters.branch }}"
-      artifactName: "${{ parameters.artifact }}"
-      targetPath: "${{ parameters.targetpath }}"     
+      downloadType: "${{ parameters.downloadtype }}"
+      artifactName: "${{ parameters.artifactname }}"
+      downloadPath: "${{ parameters.downloadpath }}"   
