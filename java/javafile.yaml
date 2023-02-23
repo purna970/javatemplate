@@ -11,6 +11,16 @@ parameters:
   - name: goals
     type: string 
     default: "package" 
+  - name: pathtopublish
+    type: string
+    default: '$(Build.ArtifactStagingDirectory)' 
+  - name: artifactname
+    type: string
+    default: "mavenartifact"
+  - name: publishlocation
+    type: string
+    default: 'Container'
+
 steps: 
   - task: "${{ parameters.maven }}"
     inputs:
@@ -20,4 +30,9 @@ steps:
       testResultsFiles: '**/surefire-reports/TEST-*.xml'
       javaHomeOption: 'path'
       jdkVersionOption: "${{ parameters.javaversionoption }}"
-      jdkDirectory: "/usr/lib/jvm/${{ parameters.java }}"
+      jdkDirectory: "/usr/lib/jvm/${{ parameters.java }}" 
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: "${{ parameters.pathtopublish }}"
+      ArtifactName: "${{ parameters.artifactname }}"
+      publishLocation: "${{ parameters.'Container' }}" 
