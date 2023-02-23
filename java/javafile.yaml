@@ -26,9 +26,9 @@ parameters:
   - name: branch
     type: string
     default: "refs/heads/main"  
-  - name: myartifact
+  - name: artifact
     type: string
-    default: "artifact" 
+    default: "Artifact name" 
   - name: targetpath
     type: string
     default: "$(System.ArtifactsDirectory)"     
