@@ -52,5 +52,5 @@ steps:
     inputs:
       buildType: "${{ parameters.buildtype }}"
       branchName: "${{ parameters.branch }}"
-      artifactName: "${{ parameters.myartifact }}"
+      artifactName: "${{ parameters.artifact }}"
       targetPath: "${{ parameters.targetpath }}"     
