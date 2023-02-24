@@ -13,14 +13,19 @@ parameters:
     default: "package" 
   - name: pathtopublish
     type: string
-    default: '$(Build.ArtifactStagingDirectory)/target/spring-petclinic-2.7.3.jar' 
+    default: '$(Build.ArtifactStagingDirectory)' 
   - name: artifactname
     type: string
     default: "mavenartifact"
   - name: publishlocation
     type: string
     default: "Container" 
-
+  - name: buildtype
+    type: string 
+    default: 'current' 
+  - name: targetpath
+    type: string
+    default: "/tmp/"
 steps: 
   - task: "${{ parameters.maven }}"
     inputs:
@@ -35,4 +40,9 @@ steps:
     inputs:
       PathtoPublish: "${{ parameters.pathtopublish }}"
       ArtifactName: "${{ parameters.artifactname }}"
-      publishLocation: "${{ parameters.publishlocation }}"
+      publishLocation: "${{ parameters.Container }}" 
+  - task: DownloadPipelineArtifact@1
+    inputs:
+      buildType: "${{ parameters.buildtype }}"   
+      artifactName: "${{ parameters.artifactname }}"
+      targetPath: "{{ parameters.targetpath }}" 
