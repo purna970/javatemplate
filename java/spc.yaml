@@ -40,7 +40,7 @@ steps:
     inputs:
       PathtoPublish: "${{ parameters.pathtopublish }}"
       ArtifactName: "${{ parameters.artifactname }}"
-      publishLocation: "${{ parameters.Container }}" 
+      publishLocation: "${{ parameters.publishlocation }}" 
   - task: DownloadPipelineArtifact@1
     inputs:
       buildType: "${{ parameters.buildtype }}"   
