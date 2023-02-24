@@ -1,0 +1,27 @@
+--- 
+  - name: playbook of spc
+    hosts: all
+    become: yes
+    tasks: 
+      - name: copying spc jar file
+        ansible.builtin.copy:
+          src: /tmp/spring-petclinic-2.7.3.jar
+          dest: /tmp/ 
+          remote_src: yes
+      - name: copying of service file
+        ansible.builtin.copy:
+          src: spc.service
+          dest: /etc/systemd/system/spc.service
+      - name: changeing file permissions
+        ansible.builtin.file:
+          path: /etc/systemd/system/spc.service
+          mode: '664' 
+          state: path 
+      - name: service file 
+        ansible.builtin.systemd:
+          name: spc.service
+          daemon_reload: yes 
+          enabled: yes 
+          state: started 
+               
+    
