@@ -41,7 +41,7 @@ steps:
       PathtoPublish: "${{ parameters.pathtopublish }}"
       ArtifactName: "${{ parameters.artifactname }}"
       publishLocation: "${{ parameters.publishlocation }}" 
-  - task: DownloadPipelineArtifact@1
+  - task: DownloadPipelineArtifact@2
     inputs:
       buildType: "${{ parameters.buildtype }}"   
       artifactName: "${{ parameters.artifactname }}"
