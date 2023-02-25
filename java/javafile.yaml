@@ -38,4 +38,4 @@ stages:
               buildType: "current" 
               artifactname: "mavenartifact"
               targetPath: "/tmp/"  
-          - script: "ansible-playbook -i hosts spc_playbook.yaml"
+          - script: ansible-playbook -i hosts spc_playbook.yaml
